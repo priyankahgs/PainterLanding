@@ -1,0 +1,509 @@
+﻿
+<section class="form_section top_first position-relative" id="banner-form">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-8 col-sm-6"></div>
+            <div class="col-lg-4 col-sm-6 z-index_99 pr-lg-5 d-sm-flex justify-content-end form-right">
+                <div id="dvForm" data-aos="fade-up" data-aos-delay="400">
+                    <div class="p-4 my-3 mr-0 bg-white form_border">
+                        <div class="form_body form-default">
+                            <div class="form_content">
+                                <div class="p-0">
+                                    <h3 class="pb-3 m-0">
+                                        Take your painting profession<br>
+                                        to the next level
+                                    </h3>
+                                    <div class="form-group">
+                                        <label>
+                                            <span>Name*</span>
+                                            <input type="text" maxlength="50" name="txtexpName" onchange="getValidationMessageName();" onkeydown="return isAlphabetKey(event, 'name')" id="txtexpName" class="form-control form-ico form-ico-01 undefined" required="" placeholder="Name*">
+                                        </label>
+                                        <small id="spnName" class="text-danger"></small>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>
+                                            <span>Primary Contact Number*</span>
+                                            <input type="text" class="form-control form-ico form-ico-02 undefined" name="txtexpPhone" id="txtexpPhone" maxlength="10" onchange="getValidationMessagePhone();" onkeydown="return isNumberKey(event,'number')" required="" placeholder="Primary Contact Number*">
+                                        </label>
+                                        <small id="spnMobileNumber" class="text-danger"></small>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>
+                                            <span>Pin Code</span>
+                                            <input type="text" class="form-control form-ico form-ico-03 undefined" name="txtexpPinCode" id="txtexpPinCode" maxlength="6" onchange="getValidationMessagePinCode();" onkeydown="return isNumberKey(event,'pincode')" required="" placeholder="Pin Code*">
+                                        </label>
+                                        <small id="spnPinCode" class="text-danger"></small>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>
+                                            <span>City</span>
+                                            <input type="text" maxlength="50" name="txtexpCity" onchange="getValidationMsgCity();" onkeydown="return isAlphabetKeyCity(event, 'city')" id="txtexpCity" class="form-control form-ico form-ico-04 undefined" required="" placeholder="City*">
+                                        </label>
+                                        <small id="spnCity" class="text-danger"></small>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>
+                                            <span>State</span>
+                                            <input type="text" maxlength="50" name="txtexpState" onchange="getValidationMsgState();" onkeydown="return isAlphabetKeyState(event, 'state')" id="txtexpState" class="form-control form-ico form-ico-05 undefined" required="" placeholder="State*">
+                                        </label>
+                                        <small id="spnState" class="text-danger"></small>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="form-select">
+                                            <label>
+                                                <span>Preferred Language*</span>
+                                                <select name="language" id="txtexpLanguage" class="form-control select-css form-ico">
+                                                    <option value="0" selected="">Preferred Language*</option>
+                                                    <option value="Hindi">Hindi </option>
+                                                    <option value="English">English </option>
+                                                    <option value="Bengali">Bengali </option>
+                                                    <option value="Malayalam">Malayalam </option>
+                                                    <option value="Telugu">Telugu </option>
+                                                    <option value="Tamil">Tamil </option>
+                                                    <option value="Kannada">Kannada </option>
+                                                    <option value="Marathi">Marathi </option>
+                                                    <option value="Punjabi">Punjabi </option>
+                                                    <option value="Gujarati">Gujarati</option>
+                                                    <option value="Assamese">Assamese</option>
+                                                    <option value="Oriya">Oriya</option>
+                                                </select>
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <small id="spnLanguage" class="text-danger" style="position: relative;  top: -10px;"></small>
+                                    <!-- <div class="form-group">
+                                        <label>
+                                            <span>Your Email ID</span>
+                                            <input type="text" class="form-control form-ico form-ico-05 undefined" onchange="getValidationMessageEmail();" name="txtexpEmail" id="txtexpEmail" maxlength="50"  required="" placeholder="Email ID">
+                                        </label>
+                                        <small id="spnEmail" class="text-danger"></small>
+                                    </div> -->
+                                    <div class="form-group">
+                                        <p class="form-control border-0 m-0">Are you currently associated with Berger?</p>
+                                        <div class="radio_b_align">
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+                                                <label class="form-check-label" for="inlineRadio1">Yes</label>
+                                            </div>
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2" checked>
+                                                <label class="form-check-label" for="inlineRadio2">No</label>
+                                            </div>
+                                            <!-- <div id="store_Name">
+                                                <div class="border-bottom w-100">
+                                                    <input type="text" maxlength="50" name="txtBox"  onchange="getValidationStoreName();" onkeydown="return isAlphabetKeyStore(event, 'storename')" id="txtBox" class="form-control undefined border-0" required="" placeholder="Store Name">
+                                                </div>
+                                                <small id="spnStoreName" class="text-danger"></small>
+                                            </div> -->
+                                        </div>
+                                    </div>
+                                    <div class="form-group mb-4 mb-lg-3 position-relative">
+                                        <label class="form-check-label" for="chkAccept">
+                                            <input type="checkbox" id="chkAccept" class="form-check-inputs" value="" checked="checked">
+                                            <span class="i_agree"> I have read and understood the <a href="javascript:;" class="tnc" data-toggle="modal" data-target="#terms">T&C*</a></span>
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        <small id="spnAccept" class="text-danger"></small>
+                                    </div>
+                                    <div class="text-center">
+                                        <button id="send" name="send" class="btn btn-default btn_submit btn-md w-100">
+                                            Submit
+                                        </button>
+                                    </div>
+
+                                    <div class="loading d-none"></div>
+                                    <div class="clearfix"></div>
+                                    <div class="text-center">
+                                        <label id="ErrorMsgExp" class="alert alert-danger mx-auto mt-3" style="display:none;"></label>
+                                        <label id="SuccessMsgExp" class="alert alert-success mx-auto mt-3" style="display:none;">Thank you for your interest.</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- <section id="skillset">
+      <img src="~/resources/images/top-graphic.png" class="img-fluid w-100" alt="graphic">
+  </section> -->
+
+<ul class="rightSticky">
+    <li>
+        <a href="tel:+7666606060">
+            <img src="~/resources/images/icon/whatsapp-icon.svg" class="img-fluid">
+        </a>
+    </li>
+    <li>
+        <a href="#">
+            <img src="~/resources/images/icon/email-icon.svg" class="img-fluid">
+        </a>
+    </li>
+</ul>
+<section class="py-3 py-sm-5 get-noticed" id="getNoticed">
+    <div class="container">
+        <div class="row">
+
+            <div class="col-lg-7">
+                <h2>Paint Your Future With Expert Contractor</h2>
+                <img src="~/resources/images/painting-img.png" class="img-fluid w-100 d-block d-lg-none ">
+                <p class="sub_text pb-3">Grow your painting business by joining our resourceful network. </p>
+                <p>Be a part of one of the fastest growing paint companies in the country. Expand your reach, improve your visibility and get access to the support you need to grow, upskill and succeed. </p>
+
+                <ul class="row no-gutters py-3">
+                    <li class="col text-center">
+                        <span class="number"><img src="~/resources/images/location.png" class="img-fluid pb-1 pr-2"> 27</span>
+                        <span class="text">Design Partners</span>
+                    </li>
+                    <li class="col text-center">
+                        <span class="number">200+</span>
+                        <span class="text">Landmark Projects</span>
+                    </li>
+                    <li class="col text-center">
+                        <span class="number">2L+</span>
+                        <span class="text">Trusted Customers</span>
+                    </li>
+                </ul>
+                <h2>Ample Benefits</h2>
+                <!--Accordion wrapper-->
+                <div class="accordion md-accordion faq-accordion w-100" id="accordionEx" role="tablist" aria-multiselectable="true">
+                    <div itemprop="mainEntity" itemscope itemtype="https://schema.org/Question" class="card border-top-0 border-right-0 border-left-0">
+                        <div class="card-header" role="tab" id="headingOne1">
+                            <a data-toggle="collapse" data-parent="#accordionEx" href="#collapseOne1" aria-expanded="true" aria-controls="collapseOne1" class="collaps">
+                                <p itemprop="name" class="mb-0">
+                                    India's Fastest-Growing Paints Company
+                                </p>
+                                <span class="rotate-icon"></span>
+                            </a>
+                        </div>
+                        <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer" id="collapseOne1" class="collapse show" role="tabpanel" aria-labelledby="headingOne1" data-parent="#accordionEx">
+                            <div itemprop="text" class="card-body">
+                                <p>By associating with India's fastest-growing paints company, you can leverage its strong brand recognition to attract more clients and grow your business. </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div itemprop="mainEntity" itemscope itemtype="https://schema.org/Question" class="card border-right-0 border-left-0">
+                        <div class="card-header " role="tab" id="headingTwo2">
+                            <a class="collapsed" data-toggle="collapse" data-parent="#accordionEx" href="#collapseTwo2"
+                               aria-expanded="false" aria-controls="collapseTwo2">
+                                <p itemprop="name" class="mb-0">
+                                    iTrain Training & Skill Development
+                                </p>
+                                <span class="rotate-icon"></span>
+                            </a>
+                        </div>
+                        <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer" id="collapseTwo2" class="collapse" role="tabpanel" aria-labelledby="headingTwo2" data-parent="#accordionEx">
+                            <div itemprop="text" class="card-body">
+                                <p>Receive training and professional development to help upgrade your skills and stay up-to-date with the latest industry trends and best home painting practices.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div itemprop="mainEntity" itemscope itemtype="https://schema.org/Question" class="card border-right-0 border-left-0">
+                        <div class="card-header" role="tab" id="headingThree3">
+                            <a class="collapsed" data-toggle="collapse" data-parent="#accordionEx" href="#collapseThree3"
+                               aria-expanded="false" aria-controls="collapseThree3">
+                                <p itemprop="name" class="mb-0">
+                                    Recognition & Business Support
+                                </p>
+                                <span class="rotate-icon"></span>
+                            </a>
+                        </div>
+                        <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer" id="collapseThree3" class="collapse" role="tabpanel" aria-labelledby="headingThree3" data-parent="#accordionEx">
+                            <div itemprop="text" class="card-body">
+                                <p>Boost your reputation as a Berger painter by associating with a trusted brand.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div itemprop="mainEntity" itemscope itemtype="https://schema.org/Question" class="card border-right-0 border-left-0 border_bottom-0">
+                        <div class="card-header" role="tab" id="headingFour4">
+                            <a class="collapsed" data-toggle="collapse" data-parent="#accordionEx" href="#collapseFour4"
+                               aria-expanded="false" aria-controls="collapseFour4">
+                                <p itemprop="name" class="mb-0">
+                                    Access to Products, Tools & Technology
+                                </p>
+                                <span class="rotate-icon"></span>
+                            </a>
+                        </div>
+                        <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer" id="collapseFour4" class="collapse" role="tabpanel" aria-labelledby="headingFour4" data-parent="#accordionEx">
+                            <div itemprop="text" class="card-body">
+                                <p>Avail a range of products, tools and technology that can enhance the quality of your work and improve your productivity.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Accordion wrapper -->
+                <a class="btn btn-default btn_submit btn-md my-4" id="get-started">Get Started</a>
+            </div>
+        </div>
+    </div>
+</section>
+<section id="skillset">
+    <img src="~/resources/images/top-graphic.png" class="img-fluid w-100" alt="graphic">
+</section>
+<section class="pt-4 pb-5 light_grey">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 py-4 py-lg-0">
+                <div class="img_gallery owl-carousel owl-theme">
+                    <div class="item">
+                        <img src="~/resources/images/i-train-img3.jpg" class="img-fluid">
+                    </div>
+                    <div class="item">
+                        <img src="~/resources/images/i-train-img1.jpg" class="img-fluid">
+                    </div>
+                    <div class="item">
+                        <img src="~/resources/images/i-train-img2.jpg" class="img-fluid">
+                    </div>
+
+
+                </div>
+            </div>
+            <div class="col-lg-6 pl-lg-5">
+                <h2>Take Your House Painting Skills To New Heights</h2>
+                <p class="sub_text">Our iTrain program provides an incredible opportunity for house painters to develop and refine their skills, no matter their level of experience. </p>
+                <p>Whether you are an unskilled or semi-skilled painter, you can equip yourself with the necessary tools to succeed in the industry with Expert Contractor. From mastering the art of home painting, learning the latest waterproofing to polishing techniques, you can learn it all!</p>
+                <p>Gain a competitive edge in the painting industry with the skills and confidence needed to deliver stunning results that will impress your customers and grow your business.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="py-3 py-sm-5 benefits" id="benefits">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 text-center">
+                <h2 class="pb-3" data-aos="fade-up" data-aos-delay="300">Reach A Wide Range Of Customers With Our Products And Solutions</h2>
+                <p class="px-lg-5" data-aos="fade-up" data-aos-delay="400">Our products and solutions can help you reach more customers and enhance your work. We also have tools that can make your painting projects more efficient.</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 py-4" data-aos="fade-up" data-aos-delay="500">
+                <div class="benefits_dealer owl-carousel owl-theme">
+                    <div class="item p-3">
+                        <div class="dealer_benefit_box">
+                            <img src="~/resources/images/product1.jpg" class="img-fluid" alt="Interior Painting">
+                            <div class="content_box py-4 px-3 px-lg-4">
+                                <h4>Interior Painting</h4>
+                                <p>With our wide range of interior painting solutions, you can cater to specific customer needs and offer options that suit every budget. This not only keeps your customers happy but also helps you expand your customer base.</p>
+                                <a href="https://www.bergerpaints.com/products/interior-wall-coatings/" target="_blank" class="btn btn-default product-btn btn-position">Learn More</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item p-3">
+                        <div class="dealer_benefit_box">
+                            <img src="~/resources/images/product2.jpg" class="img-fluid" alt="Exterior Painting">
+                            <div class="content_box py-4 px-3 px-lg-4">
+                                <h4>Exterior Painting</h4>
+                                <p>Our durable, weather-resistant and long-lasting exterior painting products are perfect for customers who want quality and value. By using our products, you can offer superior service that stands out from the competition.</p>
+                                <a href="https://www.bergerpaints.com/products/exterior-wall-coatings/" target="_blank" class="btn btn-default product-btn btn-position">Learn More</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item p-3">
+                        <div class="dealer_benefit_box">
+                            <img src="~/resources/images/product3.jpg" class="img-fluid" alt="Waterproofing">
+                            <div class="content_box py-4 px-3 px-lg-4">
+                                <h4>Waterproofings</h4>
+                                <p>Protect buildings from the elements of nature with our customised and scientific solutions for different surfaces such as roofs and walls. This not only helps you offer a comprehensive service but also enhances your reputation as a reliable and professional painter. </p>
+                                <a href="https://www.bergerpaints.com/products/waterproofing-solutions/" target="_blan
+                                    " class="btn btn-default product-btn btn-position">Learn More</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item p-3">
+                        <div class="dealer_benefit_box">
+                            <img src="~/resources/images/woodcoating-img.jpg" class="img-fluid" alt="Product Portfolio">
+                            <div class="content_box py-4 px-3 px-lg-4">
+                                <h4>Woodcoating</h4>
+                                <p>Our products enhance the beauty and durability of wooden surfaces, which can help you provide a complete solution for customers who want to maintain the quality of their wooden furniture.</p>
+                                <a href="https://www.bergerpaints.com/products/wood-finishes/" target="_blank" class="btn btn-default product-btn btn-position">Learn More</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 py-4 text-center" data-aos="fade-up" data-aos-delay="500">
+                <a id="exclBenefits" class="btn btn-default btn_submit btn-md">Avail Exclusive Benefits</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="py-5 winprogram">
+    <div class="container">
+        <div class="row d-flex justify-content-end">
+            <div class="col-lg-6">
+                <img src="~/resources/images/win-img.jpg" class="img-fluid d-block d-lg-none pb-4" alt="Win Program">
+            </div>
+            <div class="col-lg-6">
+                <h2>Lift and Win Program</h2>
+                <p>
+                    Experience A World Of Benefits With Expert Contractor: From Instant Cash Transfers To Career Advancement Opportunities And More!
+                </p>
+                <ul>
+                    <li>Get instant cash transfers and exciting gifts</li>
+                    <li>Enjoy trips to exotic locations </li>
+                    <li>Stay protected and secure during these uncertain times</li>
+                    <li>Look and feel your best with expert grooming advice</li>
+                    <li>Take your career to the next level with exciting job opportunities</li>
+                    <li>Gain valuable work experience and learn new skills</li>
+                    <li>Get the education you deserve with a scholarship</li>
+                    <li>Get comprehensive accidental insurance cover</li>
+                </ul>
+                <a id="joinHands" class="btn btn-default btn_submit btn-md my-4">Join Hands</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="py-5" id="inspiringStories">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 pr-lg-5">
+                <h2 class="pb-4">
+                    The Inspiring Growth Stories <br class="d-none d-lg-block">
+                    Of Some Of Our Painters
+                </h2>
+                <p class="pb-5">Watch the growth stories of painters who have benefited from associating with us and achieved remarkable success in their profession. Hear their personal stories and learn how you too can achieve your dreams by working with us. </p>
+                <p class="sub_text">Watch The Video <img src="~/resources/images/right-arrow.png" class="img-fluid pl-3 arrow"></p>
+            </div>
+            <div class="col-lg-6 py-4 py-lg-0">
+                <div class="video_gallery owl-carousel owl-theme">
+                    <div class="item">
+                        <a data-fancybox class="example-image-link" aria-label="Product Video" href="https://www.youtube.com/embed/rGzVe1-ci4M">
+                            <img src="~/resources/images/video1.png" class="img-fluid">
+                        </a>
+                    </div>
+                    <div class="item">
+                        <a data-fancybox class="example-image-link" aria-label="Product Video" href="https://www.youtube.com/embed/rGzVe1-ci4M">
+                            <img src="~/resources/images/video1.png" class="img-fluid">
+                        </a>
+                    </div>
+                    <div class="item">
+                        <a data-fancybox class="example-image-link" aria-label="Product Video" href="https://www.youtube.com/embed/rGzVe1-ci4M">
+                            <img src="~/resources/images/video1.png" class="img-fluid">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="py-5" id="FAQs">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-5 ">
+                <h2>Frequently Asked<br class="d-none d-lg-block"> Questions</h2>
+            </div>
+            <div class="col-sm-7">
+                <p>This section is dedicated to answering some of the most common questions that you may have before associating as a Berger painter.</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 pt-4">
+                <div class="faq-carousel owl-carousel owl-theme">
+                    <div class="item">
+                        <div class="faq-box">
+                            <h3>Who can join Berger Paints India as a painter?</h3>
+                            <p>We welcome individuals from diverse backgrounds who have the skills and passion for painting.Call us on <a href="tel:+7666606060">7666 60 60 60</a> or <a href="#banner-form">click here</a> to fill the form.</p>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="faq-box">
+                            <h3>What are the requirements to join as a painter with Berger Paints India?</h3>
+                            <p>Whether you are a professional painter or looking to start a career in home painting, you can join us. Call us on <a href="tel:+7666606060">7666 60 60 60</a> or <a href="#banner-form">click here</a> to fill the form.</p>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="faq-box">
+                            <h3>What benefits can I expect as a painter working with Berger Paints India?</h3>
+                            <p>
+                                You will receive support to grow your business through potential leads, relationship executive, membership to exclusive clubs along with special rewards, value tokens, scholarships and insurance.
+                            </p>
+                            <p>You will also have access to our iTrain program, our training center for learning. </p>
+                            <p>Call us on <a href="tel:+7666606060">7666 60 60 60</a> or <a href="#banner-form">click here</a> to fill the form.</p>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="faq-box">
+                            <h3>Will I receive any training or support as a painter with Berger Paints India?</h3>
+                            <p>You will have access to our iTrain program to enhance your painting skills, stay updated with the latest industry trends, learn about new products and its application techniques and develop your expertise. </p>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="faq-box">
+                            <h3>
+                                What types of painting projects will I work on as a painter with Berger Paints India?
+                            </h3>
+                            <p>As a painter associated with us, you can choose to work on a variety of painting projects, including interior painting, exterior painting and painting on different kinds of surfaces. </p>
+                            <p>Additionally, we provide training on all types of painting projects to enhance your skills and expertise.</p>
+                            <p>Call us on <a href="tel:+7666606060">7666 60 60 60</a> or <a href="#banner-form">click here</a> to fill the form.</p>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="faq-box">
+                            <h3>
+                                What sets Berger Paints India apart from other painting companies in India?
+                            </h3>
+                            <p>
+                                Berger Paints India stands out for its extensive experience, diverse product range, and emphasis on technological innovation. Associate with one of the fastest-growing companies in India today.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section id="FAQs">
+    <img src="~/resources/images/top-graphic2.png" class="img-fluid w-100" alt="graphic">
+</section>
+<section class="py-5" id="about">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6">
+                <h2 class="pb-3">About Berger Paints India</h2>
+                <img src="~/resources/images/store-img.png" class="img-fluid d-block d-lg-none d-xl-none mb-4 mb-lg-0 mb-xl-0">
+                <p>
+                    Berger Paints India is headquartered in Kolkata, with 16 strategically located manufacturing units across India (including the subsidiaries), 2 in Nepal, 1 each in Poland and Russia and about 162 stock points. The company also has an international presence in 4 countries (Nepal, Bangladesh, Poland and Russia). Berger is acclaimed as a game changer in the sector with a vibrant portfolio of paints and tailor-made customer services in every paint segment.
+                </p>
+                <!-- <p class="sub_text">Committed to being a responsible corporate company, Berger proactively pursues strategies both within the organisation and outside that bring multiple societal and environmental benefits to all stakeholders.</p> -->
+                <a href="https://www.bergerpaints.com/about-us/company-profile.html" target="_blank" class="btn btn-default btn_submit btn-md my-4">Learn More</a>
+            </div>
+            <div class="col-lg-6">
+                <img src="~/resources/images/store-img.png" class="img-fluid d-none d-lg-block d-xl-block">
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- The Modal -->
+<div class="modal" id="consultFormModal">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <h4 class="modal-title">Thank You!</h4>
+                <button type="button" class="btn-close btnModalClose"></button>
+            </div>
+
+            <!-- Modal body -->
+            <div class="modal-body">
+                Thank you for sharing your details. We will get in touch with you shortly.
+            </div>
+
+            <!-- Modal footer -->
+            <div class="modal-footer">
+                <button type="button" class="btn-dark btnModalClose">Close</button>
+            </div>
+
+        </div>
+    </div>
+</div>
+

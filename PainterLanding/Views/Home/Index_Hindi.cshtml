@@ -1,0 +1,524 @@
+﻿@{
+    Layout = "~/Views/Shared/_HindiLayout.cshtml";
+}
+
+<section class="form_section top_first position-relative" id="banner-form">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-8 col-sm-6"></div>
+            <div class="col-lg-4 col-sm-6 z-index_99 pr-lg-5 d-sm-flex justify-content-end form-right">
+                <div id="dvForm" data-aos="fade-up" data-aos-delay="400">
+                    <div class="p-4 my-3 mr-0 bg-white form_border">
+                        <div class="form_body form-default">
+                            <div class="form_content">
+                                <div class="p-0">
+                                    <h3 class="pb-3 m-0">
+                                        अपने पेंटिंग के हुनर को अगले स्तर पर ले जाएं
+                                    </h3>
+                                    <div class="form-group">
+                                        <label>
+                                            <span>नाम*</span>
+                                            <input type="text" maxlength="50" name="txtexpName" onchange="getValidationMessageName();" onkeydown="return isAlphabetKey(event, 'name')" id="txtexpName" class="form-control form-ico form-ico-01 undefined" required="" placeholder="नाम*">
+                                        </label>
+                                        <small id="spnName" class="text-danger"></small>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>
+                                            <span>मेन फ़ोन नंबर*</span>
+                                            <input type="text" class="form-control form-ico form-ico-02 undefined" name="txtexpPhone" id="txtexpPhone" maxlength="10" onchange="getValidationMessagePhone();" onkeydown="return isNumberKey(event,'number')" required="" placeholder="मेन फ़ोन नंबर*">
+                                        </label>
+                                        <small id="spnMobileNumber" class="text-danger"></small>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>
+                                            <span>पिन कोड</span>
+                                            <input type="text" class="form-control form-ico form-ico-03 undefined" name="txtexpPinCode" id="txtexpPinCode" maxlength="6" onchange="getValidationMessagePinCode();" onkeydown="return isNumberKey(event,'pincode')" required="" placeholder="पिन कोड*">
+                                        </label>
+                                        <small id="spnPinCode" class="text-danger"></small>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>
+                                            <span>शहर</span>
+                                            <input type="text" maxlength="50" name="txtexpCity" onchange="getValidationMsgCity();" onkeydown="return isAlphabetKeyCity(event, 'city')" id="txtexpCity" class="form-control form-ico form-ico-04 undefined" required="" placeholder="शहर*">
+                                        </label>
+                                        <small id="spnCity" class="text-danger"></small>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>
+                                            <span>राज्य</span>
+                                            <input type="text" maxlength="50" name="txtexpState" onchange="getValidationMsgState();" onkeydown="return isAlphabetKeyState(event, 'state')" id="txtexpState" class="form-control form-ico form-ico-05 undefined" required="" placeholder="राज्य*">
+                                        </label>
+                                        <small id="spnState" class="text-danger"></small>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="form-select">
+                                            <label>
+                                                <span>पसंदीदा भाषा*</span>
+                                                <select name="language" id="txtexpLanguage" class="form-control select-css form-ico">
+                                                    <option value="0" selected="">पसंदीदा भाषा*</option>
+                                                    <option value="Hindi">हिंदी </option>
+                                                    <option value="English">अंग्रेज़ी </option>
+                                                    <option value="Bengali">बंगाली </option>
+                                                    <option value="Malayalam">मलयालम </option>
+                                                    <option value="Telugu">तेलुगु </option>
+                                                    <option value="Tamil">तमिल </option>
+                                                    <option value="Kannada">कन्नडा </option>
+                                                    <option value="Marathi">मराठी </option>
+                                                    <option value="Punjabi">पंजाबी </option>
+                                                    <option value="Gujarati">गुजराती</option>
+                                                    <option value="Assamese">असमिया</option>
+                                                    <option value="Oriya">उड़िया</option>
+                                                </select>
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <small id="spnLanguage" class="text-danger" style="position: relative;  top: -10px;"></small>
+                                    <!-- <div class="form-group">
+                                        <label>
+                                            <span>Your Email ID</span>
+                                            <input type="text" class="form-control form-ico form-ico-05 undefined" onchange="getValidationMessageEmail();" name="txtexpEmail" id="txtexpEmail" maxlength="50"  required="" placeholder="Email ID">
+                                        </label>
+                                        <small id="spnEmail" class="text-danger"></small>
+                                    </div> -->
+                                    <div class="form-group">
+                                        <p class="form-control border-0 m-0">क्या आप फ़िलहाल बर्जर से जुड़े हुए हैं?</p>
+                                        <div class="radio_b_align">
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+                                                <label class="form-check-label" for="inlineRadio1">हां</label>
+                                            </div>
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2" checked>
+                                                <label class="form-check-label" for="inlineRadio2">नहीं</label>
+                                            </div>
+                                            <!-- <div id="store_Name">
+                                                <div class="border-bottom w-100">
+                                                    <input type="text" maxlength="50" name="txtBox"  onchange="getValidationStoreName();" onkeydown="return isAlphabetKeyStore(event, 'storename')" id="txtBox" class="form-control undefined border-0" required="" placeholder="Store Name">
+                                                </div>
+                                                <small id="spnStoreName" class="text-danger"></small>
+                                            </div> -->
+                                        </div>
+                                    </div>
+                                    <div class="form-group mb-4 mb-lg-3 position-relative">
+                                        <label class="form-check-label" for="chkAccept">
+                                            <input type="checkbox" id="chkAccept" class="form-check-inputs" value="" checked="checked">
+                                            <span class="i_agree"> मैंने <a href="javascript:;" class="tnc" data-toggle="modal" data-target="#terms">टीएंडसी*</a> को पढ़ और समझ लिया है </span>
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        <small id="spnAccept" class="text-danger"></small>
+                                    </div>
+                                    <div class="text-center">
+                                        <button id="send" name="send" class="btn btn-default btn_submit btn-md w-100">
+                                            सबमिट करें
+                                        </button>
+                                    </div>
+
+                                    <div class="loading d-none"></div>
+                                    <div class="clearfix"></div>
+                                    <div class="text-center">
+                                        <label id="ErrorMsgExp" class="alert alert-danger mx-auto mt-3" style="display:none;"></label>
+                                        <label id="SuccessMsgExp" class="alert alert-success mx-auto mt-3" style="display:none;">Thank you for your interest.</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- <section id="skillset">
+      <img src="~/resources/images/top-graphic.png" class="img-fluid w-100" alt="graphic">
+  </section> -->
+
+<ul class="rightSticky">
+    <li>
+        <a href="tel:7666 60 60 60">
+            <img src="~/resources/images/icon/whatsapp-icon.svg" class="img-fluid">
+        </a>
+    </li>
+    <li>
+        <a href="Javascript:;" id="emailId">
+            <img src="~/resources/images/icon/email-icon.svg" class="img-fluid">
+        </a>
+    </li>
+</ul>
+<section class="py-3 py-sm-5 get-noticed" id="getNoticed">
+    <div class="container">
+        <div class="row">
+
+            <div class="col-lg-7">
+                <h2>बर्जर एक्सपर्ट कॉन्ट्रैक्टर के साथ अपने भविष्य में नए रंग भरें </h2>
+                <img src="~/resources/images/painting-img.png" class="img-fluid w-100 d-block d-lg-none" alt="Home Painting with Berger Expert Contractor">
+                <p class="sub_text pb-0 mb-2">हमारे संसाधन के साथ तैयार नेटवर्क से जुड़कर अपना पेंटिंग बिज़नेस बढ़ाएँ। </p>
+                <p>हमारी तेज़ी से बढ़ती पेंट कंपनी से जुड़ें। ज़्यादा लोगों तक पहुँचें, अपनी पहचान बनाएं। साथ ही, आगे बढ़ने और सफल होने के लिए ज़रूरी सपोर्ट आसानी से हासिल करें।</p>
+                <ul class="row no-gutters py-4">
+                    <li class="col text-center">
+                        <span class="number"><img src="~/resources/images/contractor-icon.svg" class="img-fluid pr-1">3 लाख+ </span>
+                        <span class="text">कॉन्ट्रैक्टर</span>
+                    </li>
+                    <li class="col text-center">
+                        <span class="number"><img src="~/resources/images/trusted-customer-icon.svg" class="img-fluid pr-1">25,000+</span>
+                        <span class="text">डीलर नेटवर्क</span>
+                    </li>
+                    <li class="col text-center">
+                        <span class="number"><img src="~/resources/images/projects-icon.svg" class="img-fluid pr-1">5,000+</span>
+                        <span class="text">प्रोजेक्ट प्रतिदिन</span>
+                    </li>
+                </ul>
+                <h2>ढेरों फ़ायदे </h2>
+                <!--Accordion wrapper-->
+                <div class="accordion md-accordion faq-accordion w-100" id="accordionEx" role="tablist" aria-multiselectable="true">
+                    <div itemprop="mainEntity" itemscope itemtype="https://schema.org/Question" class="card border-top-0 border-right-0 border-left-0">
+                        <div class="card-header" role="tab" id="headingOne1">
+                            <a data-toggle="collapse" data-parent="#accordionEx" href="#collapseOne1" aria-expanded="true" aria-controls="collapseOne1" class="collaps">
+                                <p itemprop="name" class="mb-0">
+                                    भारत की सबसे तेज़ी से बढ़ती पेंट्स कंपनी से जुड़िए
+                                </p>
+                                <span class="rotate-icon"></span>
+                            </a>
+                        </div>
+                        <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer" id="collapseOne1" class="collapse show" role="tabpanel" aria-labelledby="headingOne1" data-parent="#accordionEx">
+                            <div itemprop="text" class="card-body">
+                                <p>नए ग्राहकों को जोड़ने के लिए हमारे मज़बूत नेटवर्क का लाभ उठाएं।</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div itemprop="mainEntity" itemscope itemtype="https://schema.org/Question" class="card border-right-0 border-left-0">
+                        <div class="card-header " role="tab" id="headingTwo2">
+                            <a class="collapsed" data-toggle="collapse" data-parent="#accordionEx" href="#collapseTwo2"
+                               aria-expanded="false" aria-controls="collapseTwo2">
+                                <p itemprop="name" class="mb-0">
+                                    अपने बिज़नेस को 5 गुना बढ़ाएं
+                                </p>
+                                <span class="rotate-icon"></span>
+                            </a>
+                        </div>
+                        <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer" id="collapseTwo2" class="collapse" role="tabpanel" aria-labelledby="headingTwo2" data-parent="#accordionEx">
+                            <div itemprop="text" class="card-body">
+                                <p>हमारी मदद से हाई-क्वालिटी लीड पाएं।</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div itemprop="mainEntity" itemscope itemtype="https://schema.org/Question" class="card border-right-0 border-left-0">
+                        <div class="card-header" role="tab" id="headingThree3">
+                            <a class="collapsed" data-toggle="collapse" data-parent="#accordionEx" href="#collapseThree3"
+                               aria-expanded="false" aria-controls="collapseThree3">
+                                <p itemprop="name" class="mb-0">
+                                    अपनी पहचान बनाएं
+                                </p>
+                                <span class="rotate-icon"></span>
+                            </a>
+                        </div>
+                        <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer" id="collapseThree3" class="collapse" role="tabpanel" aria-labelledby="headingThree3" data-parent="#accordionEx">
+                            <div itemprop="text" class="card-body">
+                                <p>बर्जर पेंट्स-पावर्ड ID कार्डों के साथ इंडस्ट्री में अपने नाम को और निखारें।</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div itemprop="mainEntity" itemscope itemtype="https://schema.org/Question" class="card border-right-0 border-left-0 border_bottom-0">
+                        <div class="card-header" role="tab" id="headingFour4">
+                            <a class="collapsed" data-toggle="collapse" data-parent="#accordionEx" href="#collapseFour4"
+                               aria-expanded="false" aria-controls="collapseFour4">
+                                <p itemprop="name" class="mb-0">
+                                    प्रॉडक्ट्स और ऑटोमेटेड टूल्स का लाभ उठाएं
+                                </p>
+                                <span class="rotate-icon"></span>
+                            </a>
+                        </div>
+                        <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer" id="collapseFour4" class="collapse" role="tabpanel" aria-labelledby="headingFour4" data-parent="#accordionEx">
+                            <div itemprop="text" class="card-body">
+                                <p>अपने काम की क्वालिटी बेहतर बनाएं और प्रोडक्टिविटी में सुधार लाएं।</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div itemprop="mainEntity" itemscope itemtype="https://schema.org/Question" class="card border-right-0 border-left-0 border_bottom-0">
+                        <div class="card-header" role="tab" id="headingFive5">
+                            <a class="collapsed" data-toggle="collapse" data-parent="#accordionEx" href="#collapseFive5"
+                               aria-expanded="false" aria-controls="collapseFive5">
+                                <p itemprop="name" class="mb-0">
+                                    समय और पैसा बचाएं
+                                </p>
+                                <span class="rotate-icon"></span>
+                            </a>
+                        </div>
+                        <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer" id="collapseFive5" class="collapse" role="tabpanel" aria-labelledby="headingFive5" data-parent="#accordionEx">
+                            <div itemprop="text" class="card-body">
+                                <p>ई-संबंध ऐप के साथ डायरेक्ट-टू-साइट डिलीवरी पाएं।</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Accordion wrapper -->
+                <a class="btn btn-default btn_submit btn-md my-4" id="get-started">फॉर्म भरें</a>
+            </div>
+        </div>
+    </div>
+</section>
+<section id="skillset">
+    <img src="~/resources/images/top-graphic.png" class="img-fluid w-100" alt="graphic">
+</section>
+<section class="pt-4 pb-5 light_grey">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 py-4 py-lg-0">
+                <div class="img_gallery owl-carousel owl-theme">
+                    <div class="item">
+                        <img src="~/resources/images/i-train-img3.jpg" class="img-fluid" alt="iTrain centers nationwide">
+                    </div>
+                    <div class="item">
+                        <img src="~/resources/images/i-train-img1.jpg" class="img-fluid" alt="Home Painting Skills To New Heights - Berger Paints">
+                    </div>
+                    <div class="item">
+                        <img src="~/resources/images/i-train-img2.jpg" class="img-fluid" alt="Learn interior-exterior painting - Berger Paints">
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6 pl-lg-5">
+                <h2>अपने होम पेंटिंग स्किल को नई ऊंचाइयों पर ले जाएं</h2>
+                <p class="sub_text">अपने हुनर को निखारें, इंडस्ट्री ट्रेंड्स के बारे में अप-टू-डेट रहें और देश भर में iTrain सेंटर्स पर सर्टिफिकेशन पाएं। </p>
+                <p>इंटीरियर-एक्सटीरियर पेंटिंग, वॉटरप्रूफिंग सिस्टम, वुड-पॉलिशिंग टेक्नीक, ऑटोमेटेड टूल्स का इस्तेमाल और इसके अलावा भी बहुत कुछ सीखें।  </p>
+                <p class="mb-0">पेंटिंग इंडस्ट्री में उन्नति हासिल करने, ग्राहकों को प्रभावित करने और अपने व्यापार को बढ़ाने के लिए कुशलता विकसित करें।</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="pt-5 pb-4 winprogram" id="winProgram">
+    <div class="container">
+        <div class="row d-flex justify-content-end">
+            <div class="col-lg-6">
+                <img src="~/resources/images/win-img.jpg" class="img-fluid d-block d-lg-none pb-4" alt="Best loyalty program in the industry">
+            </div>
+            <div class="col-lg-6">
+                <h2>लिफ्ट एंड विन प्रोग्राम</h2>
+                <p> बर्जर एक्सपर्ट कॉन्ट्रैक्टर के साथ खास फ़ायदों को आज़माएं इंडस्ट्री में सबसे ज़्यादा कमाई के मौके देने वाला लॉयल्टी प्रोग्राम </p>
+                <ul>
+                    <li>फटाफट कैश ट्रांसफर और रिवॉर्ड भी</li>
+                    <li>सालाना और हर तीन महीने पर बोनस रिवॉर्ड</li>
+                    <li>विदेशी यात्राएं और विशेष क्लबों का ऐक्सेस</li>
+                    <li>बीमा कवरेज</li>
+                    <li>बच्चों की पढ़ाई के लिए बर्जर स्कॉलरशिप</li>
+                    <li>व्यक्तित्व विकास क्लाइंट विज़िट के लिए</li>
+                </ul>
+                <a id="joinHands" class="btn btn-default btn_submit btn-md my-4">बर्जर से जुड़ें</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="pt-5 pb-3 py-sm-5 benefits" id="benefits">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 text-lg-center">
+                <h2 data-aos="fade-up" data-aos-delay="300">हमारे प्रोडक्ट और सॉल्युशन के साथ हर तरह के ग्राहकों तक पहुंचें</h2>
+                <p class="px-lg-5" data-aos="fade-up" data-aos-delay="400">हमारे प्रोडक्ट और सॉल्युशन आपको ज़्यादा ग्राहकों तक पहुंचने और आपके काम को बढ़ाने में मदद कर सकते हैं। हमारे पास ऐसे टूल भी हैं जो आपके पेंटिंग प्रोजेक्ट्स को और ज़्यादा बेहतर बना सकते हैं। </p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 py-4" data-aos="fade-up" data-aos-delay="500">
+                <div class="benefits-dealer owl-carousel owl-theme">
+                    <div class="item p-3">
+                        <div class="dealer_benefit_box">
+                            <img src="~/resources/images/product1.jpg" class="img-fluid" alt="Silk Glamor for Interior Painting Solutions">
+                            <div class="content_box py-4 px-3 px-lg-4">
+                                <h4>इंटीरियर पेंटिंग</h4>
+                                <p>हमारे कई सारे इंटीरियर पेंटिंग सॉल्युशन्स के साथ, आप ग्राहक की खास ज़रूरतों को पूरा कर सकते हैं और उनके बजट के हिसाब से उन्हें विकल्प दे सकते हैं। इससे न केवल आपके ग्राहक खुश होते हैं बल्कि आपको अपने कस्टमर बेस को बढ़ाने भी मदद मिलती है।</p>
+                                <a href="https://www.bergerpaints.com/products/interior-wall-coatings/" target="_blank" class="btn btn-default product-btn btn-position">और जानें</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item p-3">
+                        <div class="dealer_benefit_box">
+                            <img src="~/resources/images/product2.jpg" class="img-fluid" alt="Anti Dustt Kool for Long-Lasting Exterior Painting">
+                            <div class="content_box py-4 px-3 px-lg-4">
+                                <h4>एक्सटीरियर पेंटिंग</h4>
+                                <p>हमारे टिकाऊ, हर मौसम के लिए तैयार और लंबे समय तक चलने वाले बाहरी पेंटिंग से संबंधित प्रोडक्ट उन ग्राहकों के लिए एकदम सही हैं जो क्वालिटी और वैल्यू चाहते हैं। हमारे प्रोडक्ट इस्तेमाल करके आप बेहतर सर्विस दे सकते हैं जो आपको अपने कम्पटीटरों से अलग पहचान दिलाती है।</p>
+                                <a href="https://www.bergerpaints.com/products/exterior-wall-coatings/" target="_blank" class="btn btn-default product-btn btn-position">और जानें</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item p-3">
+                        <div class="dealer_benefit_box">
+                            <img src="~/resources/images/product3.jpg" class="img-fluid" alt="PU RoofKoat - Customised Waterproofing Solutions">
+                            <div class="content_box py-4 px-3 px-lg-4">
+                                <h4>वॉटरप्रूफिंग</h4>
+                                <p>ज़रूरत के मुताबिक तैयार वॉटरप्रूफिंग सॉल्युशन्स के साथ इमारतों की सुरक्षा करें और एक भरोसेमंद पेंटर के रूप में अपना नाम कमाएं।</p>
+                                <a href="https://www.bergerpaints.com/products/waterproofing-solutions/" target="_blank" class="btn btn-default product-btn btn-position">और जानें</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item p-3">
+                        <div class="dealer_benefit_box">
+                            <img src="~/resources/images/woodcoating-img.jpg" class="img-fluid" alt="Imperia Breathe Easy - Maintain Wooden Surfaces">
+                            <div class="content_box py-4 px-3 px-lg-4">
+                                <h4>वुड कोटिंग्स</h4>
+                                <p>हमारे प्रोडक्ट लकड़ी की सतहों की ख़ूबसूरती और मज़बूती को बढ़ाते हैं, इससे आपको उन ग्राहकों के लिए एक संपूर्ण सॉल्युशन देने में मदद मिलती हैं जो अपने लकड़ी के फर्नीचर की क्वालिटी बरकरार रखना चाहते हैं।</p>
+                                <a href="https://www.bergerpaints.com/products/wood-finishes/" target="_blank" class="btn btn-default product-btn btn-position">और जानें</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 py-4 text-center">
+                <a id="exclBenefits" class="btn btn-default btn_submit btn-md">खास लाभ पाएं </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<section class="pt-5 py-lg-5" id="inspiringStories">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 pr-lg-5">
+                <h2>
+                    हमारे कुछ पेंटरों के विकास की कुछ<br class="d-none d-lg-block"> प्रेरणादायक कहानियां
+
+                </h2>
+                <p class="pb-5 m-0">उन पेंटरों की ग्रोथ स्टोरी देखें, जिन्होंने हमारे साथ जुड़कर लाभ उठाया है और अपने पेशे और अपने जीवन में सफलता हासिल की है।</p>
+                <p class="sub_text">वीडियो देखें </p>
+            </div>
+            <div class="col-lg-6 py-4 py-lg-0">
+                <div class="video_gallery owl-carousel owl-theme">
+                    <div class="item">
+                        <a data-fancybox class="example-image-link" aria-label="Product Video" href="https://www.youtube.com/embed/JG9USMU8BSY">
+                            <img src="~/resources/images/video1.png" class="img-fluid">
+                        </a>
+                    </div>
+                    @* <div class="item">
+                            <a data-fancybox class="example-image-link" aria-label="Product Video" href="https://www.youtube.com/embed/rGzVe1-ci4M">
+                                <img src="~/resources/images/video1.png" class="img-fluid">
+                            </a>
+                        </div>
+                        <div class="item">
+                            <a data-fancybox class="example-image-link" aria-label="Product Video" href="https://www.youtube.com/embed/rGzVe1-ci4M">
+                                <img src="~/resources/images/video1.png" class="img-fluid">
+                            </a>
+                        </div> *@
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="py-5" id="FAQs">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-5 ">
+                <h2>अक्सर पूछे जाने<br class="d-none d-lg-block"> वाले सवाल </h2>
+            </div>
+            <div class="col-sm-7">
+                <p>यह सेक्शन आपको एक बर्जर पेंटर के रूप में जुड़ने से पहले कुछ सबसे आम सवालों के उत्तर पाने में मदद करने के लिए बनाया गया है।</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 pt-4">
+                <div class="faq-carousel owl-carousel owl-theme">
+                    <div class="item">
+                        <div class="faq-box">
+                            <h3>मैं बर्जर पेंट्स इंडिया के साथ एक पेंटर के रूप में किस तरह के पेंटिंग प्रोजेक्ट्स पर काम करूंगा?</h3>
+                            <p>हमारे साथ जुड़े एक पेंटर के रूप में, आप कई तरह के पेंटिंग प्रोजेक्ट्स पर काम करना चुन सकते हैं, जिनमें इंटीरियर पेंटिंग, बाहरी पेंटिंग, वॉटरप्रूफिंग और वुड-पॉलिशिंग शामिल हैं।</p>
+                            <p>इसके अलावा, हम आपके हुनर और कौशल को बढ़ाने के लिए सभी तरह के पेंटिंग प्रोजेक्ट के लिए ट्रेनिंग देते हैं।</p>
+                            <p>हमें <a href="tel:+7666606060">7666 60 60 60</a> पर कॉल करें या फॉर्म भरने के लिए <a href="#banner-form" class="link">यहां क्लिक करें।</a></p>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="faq-box">
+                            <h3>पेंटर के रूप में बर्जर पेंट्स इंडिया से कौन जुड़ सकता है? </h3>
+                            <p>हम अलग-अलग जगहों से आने वाले ऐसे लोगों का स्वागत करते हैं जो पेंटिंग का हुनर जानते हैं और जिन्हें पेंटिंग करना पसंद है। </p>
+                            <p>हमें <a href="tel:+7666606060">7666 60 60 60</a> पर कॉल करें या फॉर्म भरने के लिए <a href="#banner-form" class="link">यहां क्लिक करें</a>। </p>
+                            <!-- <p>Call us on <a href="tel:+7666606060">7666 60 60 60</a> or <a href="#banner-form" class="link">click here</a> to fill the form.</p> -->
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="faq-box">
+                            <h3>बर्जर पेंट्स इंडिया के साथ एक पेंटर के रूप में जुड़ने के लिए क्या करना होगा?</h3>
+                            <p>चाहे आप एक प्रोफेशनल पेंटर हों या होम पेंटिंग में करियर शुरू करना चाहते हों, आप हमसे जुड़ सकते हैं। हमें <a href="tel:+7666606060">7666 60 60 60</a> पर कॉल करें या फॉर्म भरने के लिए <a href="#banner-form" class="link">यहां क्लिक करें।</a></p>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="faq-box">
+                            <h3>बर्जर पेंट्स इंडिया के साथ काम करने वाले पेंटर के रूप में मुझे क्या फ़ायदे मिलेंगे?</h3>
+                            <p>आपको अतिरिक्त बिज़नेस लीड्स, बर्जर रिलेशनशिप एक्जीक्यूटिव्स, और खास क्लबों की सदस्यता के साथ-साथ विशेष पुरस्कार, वैल्यू टोकन, स्कॉलरशिप और बीमा जैसी सुविधाएं मिलेंगी। </p>
+                            <p>सीखने के लिए हमारे ट्रेनिंग सेंटर, हमारे iTrain प्रोग्राम की भी आपको ऐक्सेस मिलेगी। </p>
+                            <p>हमें <a href="tel:+7666606060">7666 60 60 60</a> पर कॉल करें या फॉर्म भरने के लिए <a href="#banner-form" class="link">यहां क्लिक करें।</a></p>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="faq-box">
+                            <h3>क्या मुझे बर्जर पेंट्स इंडिया के साथ एक पेंटर के रूप में कोई ट्रेनिंग या मदद मिलेगी?</h3>
+                            <p>
+                                अपने पेंटिंग कौशल को बढ़ाने, नवीनतम इंडस्ट्री ट्रेंड्स के साथ अप-टू-डेट रहने, नए प्रोडक्ट्स और उनकी एप्लिकेशन तकनीकों के बारे में जानने और अपनी विशेषज्ञता विकसित करने के लिए आपको हमारे iTrain प्रोग्राम का ऐक्सेस मिलेगा।
+                            </p>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="faq-box">
+                            <h3>
+                                क्या आप प्रोजेक्ट साइट पर बर्जर पेंट्स प्रोडक्ट डिलीवर कर सकते हैं?
+                            </h3>
+                            <p> हाँ! बर्जर ई-संबंध ऐप आपको हमारे उत्पादों को ऑनलाइन खरीदने और साइट पर इनकी फ्री डिलीवरी पाने में मदद करता है, ताकि आप समय और पैसा बचा सकें। </p>
+                            <p>गूगल प्ले से ई-संबंध डाउनलोड करने के लिए <a href="https://play.google.com/store/apps/details?id=com.bergerpaints.b2b&hl=en_IN&gl=US&pli=1" target="_blank" class="link">यहां क्लिक करें</a></p>
+                            <p>ऐप स्टोर से ई-संबंध डाउनलोड करने के लिए <a href="https://apps.apple.com/in/app/berger-esambandh/id1592998095" target="_blank" class="link">यहां क्लिक करें</a></p>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="faq-box">
+                            <h3>बर्जर पेंट्स इंडिया, भारत की अन्य पेंटिंग कंपनियों से किन बातों में अलग है?</h3>
+                            <p>बर्जर पेंट्स इंडिया का अच्छा-खासा तजुर्बा है, बड़ी प्रोडक्ट रेंज है और टेक्नोलॉजिकल इनोवेशन पर हम बहुत ध्यान देते हैं, इसलिए इन मामलों में यह सबसे अलग है। आज ही, भारत की सबसे तेज़ी से बढ़ने वाली कंपनी के साथ जुड़ें। </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section id="FAQs">
+    <img src="~/resources/images/top-graphic2.png" class="img-fluid w-100" alt="graphic">
+</section>
+<section class="py-5" id="about">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6">
+                <h2>बर्जर पेंट्स इंडिया के बारे में</h2>
+                <img src="~/resources/images/store-img.png" class="img-fluid d-block d-lg-none d-xl-none mb-4 mb-lg-0 mb-xl-0" alt="Berger Paints - Smart way of home painting">
+                <p>
+                    बर्जर पेंट्स इंडिया का मुख्यालय कोलकाता में है, इसके पूरे भारत में 16, नेपाल में 2, पोलैंड और रूस में 1 रणनीतिक रूप से स्थित मैन्युफैक्चरिंग यूनिट्स (सहायक कंपनियों सहित) और लगभग 162 स्टॉक पॉइंट हैं। कंपनी की 4 देशों (नेपाल, बांग्लादेश, पोलैंड और रूस) में भी अंतरराष्ट्रीय उपस्थिति है। बर्जर को इस क्षेत्र में एक गेम चेंजर के रूप में जाना जाता है, जिसमें हर पेंट सेगमेंट में पेंट्स का एक शानदार पोर्टफोलियो और ज़रूरत के मुताबिक उपलब्ध कराई जाने वाली ग्राहक सेवाएं मौजूद हैं।
+                </p>
+                <!-- <p class="sub_text">Committed to being a responsible corporate company, Berger proactively pursues strategies both within the organisation and outside that bring multiple societal and environmental benefits to all stakeholders.</p> -->
+                <a href="https://www.bergerpaints.com/" target="_blank" class="btn btn-default btn_submit btn-md my-4">और जानें</a>
+            </div>
+            <div class="col-lg-6">
+                <img src="~/resources/images/store-img.png" class="img-fluid d-none d-lg-block d-xl-block" alt="Berger Paints - Smart way of home painting">
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- The Modal -->
+<div class="modal" id="consultFormModal">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <h4 class="modal-title">धन्यवाद!</h4>
+                <button type="button" class="btn-close btnModalClose"><i class="fa fa-times" aria-hidden="true"></i></button>
+            </div>
+            <!-- Modal body -->
+            <div class="modal-body">
+               अपनी जानकारी साझा करने के लिए धन्यवाद। हम जल्द ही आपसे संपर्क करेंगे।
+            </div>
+
+            <!-- Modal footer -->
+            <div class="modal-footer">
+              <button type="button" class="btn-dark btnModalClose">Close</button>  
+            </div>
+
+        </div>
+    </div>
+</div>
+
