@@ -52,6 +52,45 @@ function isAlphabetKey(evt, txt) {
     return true;
 }
 
+function isAlphabetKey_onlyenglish(evt, txt) {
+	
+	console.log(onlyLettersAndNumbers(txt));	
+var charCode = (evt.which) ? evt.which : evt.keyCode;
+    if (!(charCode >= 65 && charCode <= 122) && (charCode != 32 && charCode != 0) && charCode > 31 || (charCode >= 91 && charCode <= 96)) {
+        if (txt == 'name') {
+            $('#spnName').text('Special characters & numbers are not allowed');
+        }
+        return false;
+    }
+	
+else if(onlyLettersAndNumbers(txt) == false)
+{
+	
+$('#spnName').text('Only English are not allowed');
+   return false;
+}
+    $('#spnName').text('');
+	
+    return true;
+}
+
+function onlyLettersAndNumbers(str) {
+  return /^[a-zA-Z ]+$/.test(str);
+}
+
+function allLetter(inputtxt)
+      { 
+      var letters = /^[A-Za-z ]+$/;
+      if(inputtxt.value.match(letters))
+      {
+      return true;
+      }
+      else
+      {
+      return false;
+      }
+      }
+
 function isAlphabetKeyCity(evt, txt) {
     var charCode = (evt.which) ? evt.which : evt.keyCode;
     if (!(charCode >= 65 && charCode <= 122) && (charCode != 32 && charCode != 0) && charCode > 31 || (charCode >= 91 && charCode <= 96)) {
@@ -170,7 +209,7 @@ function PushToBergerCRM() {
 debugger;
     var postData = { UserId: "1" };
     $.ajax({
-        url: $('#UatBaseUrl').val() + 'BergerApi/api/InsertPainterLandingData',
+        url: $('#LiveUrl').val() + 'BergerApi/api/InsertPainterLandingData',
         type: "post",
         contentType: "application/json;charset=utf-8",
         headers: {
@@ -245,14 +284,15 @@ function SaveExp() {
         gclid = (getUrlVars()["gclid"] || '');
     }
 
+     var pageType = $("#PageType").val();
     var previousurl = document.referrer;
     $("#send").prop('disabled', true);
     var postdata = {
         Name: Fullname, Telephone: txtexpPhone, Pincode: Pincode, City: city, State: state, PreferredLanguage: language, IsAssociated: IsAssociated, Source: source,
-        Campaign: campaign, Medium: medium, PreviousUrl: previousurl
+        Campaign: campaign, Medium: medium, PreviousUrl: previousurl, PageType: pageType, Term: term, Keyword: keyword
     };
     $.ajax({
-        url: '/Home/InserPaintertData',
+        url: '/expert-contractor/Home/InserPaintertData',
         contentType: 'application/json; charset=utf-8',
         data: JSON.stringify(postdata),
         type: 'POST',
@@ -265,7 +305,7 @@ function SaveExp() {
                 ResetForm();
                 $('#consultFormModal').modal('show');
                 IsResult = true;
-
+  changeurl(pageType);
             }
             else {
                 $("#send").prop('disabled', false);
@@ -282,6 +322,42 @@ function SaveExp() {
         }
     });
     return IsResult;
+}
+
+function RunGACode(url) {
+    var pagepath = url;
+    window.history.pushState("object or string", "Title", pagepath);
+    gtag('config', 'UA-181014550-1', { 'page_path': pagepath });
+}
+
+
+function changeurl(pageType) {
+    try {
+        var url = "";
+        if ($("#LiveEnvironment").val() == "Yes") {
+            if (pageType == "Hindi") {
+                url = $('#LiveUrl').val() + "Hindi/ThankYou";
+            } else {
+                url = $('#LiveUrl').val() + "ThankYou";
+            }
+        } else {
+              if (pageType == "Hindi") {
+                url = $('#UatUrl').val() + "PainterLanding/Home/HindiPageRedirect/ThankYou";
+            } else {
+                url = $('#UatUrl').val() + "PainterLanding/ThankYou";
+            }
+        }
+
+        var pagepath = window.location.toString();
+
+
+        RunGACode(url);
+
+    }
+    catch (err) {
+        console.log("Error : " + err.message);
+    }
+
 }
 
 
@@ -314,15 +390,18 @@ function ResetForm() {
 }
 
 function getValidationMessageName() {
+	
     var name = document.getElementById("txtexpName").value;
+	 
     if (name.trim() == "" || name.trim() == "Please enter your name") {
         $('#spnName').text('Please enter your name')
     }
     else if (name.trim() != "" && name.trim() != "Please enter your name" && ischar(name.trim()) == false) {
         $('#spnName').text('Please enter valid name');
     }
-    else if (!(chkSpecialchar(name.trim()))) {
-        $('#spnName').text('Please enter valid name');
+    else if (!(onlyLettersAndNumbers(name.trim()))) {
+        $('#spnName').text('Please enter valid name in english');
+		
     }
     else {
         $('#spnName').text('')
@@ -453,6 +532,10 @@ function validateExp() {
         $('#spnName').text('Please enter valid name');
         IsValid = false;
     }
+	else if (!(onlyLettersAndNumbers(name.trim()))) {
+        $('#spnName').text('Please enter valid name in english');
+		IsValid = false;
+    }
     else {
         $('#spnName').text('')
     }
@@ -517,6 +600,10 @@ function validateExp() {
           $('#spnCity').text('Please enter valid City');
           IsValid = false;
       }
+	  else if (!(onlyLettersAndNumbers(city.trim()))) {
+        $('#spnCity').text('Please enter valid city in english');
+		IsValid = false;
+      }
       else {
           $('#spnCity').text('')
       }
@@ -534,6 +621,10 @@ function validateExp() {
        else if (!(chkSpecialchar(state.trim()))) {
            $('#spnState').text('Please enter valid State');
            IsValid = false;
+       }
+	   else if (!(onlyLettersAndNumbers(state.trim()))) {
+        $('#spnState').text('Please enter valid state in english');
+		IsValid = false;
        }
        else {
            $('#spnState').text('')
@@ -591,6 +682,20 @@ function stripCharsInBag(s, bag) {
         if (bag.indexOf(c) == -1) returnString += c;
     }
     return returnString;
+}
+
+function chkSpecialchar(s) {
+    var i;
+    for (i = 0; i < s.length; i++) {
+        // Check that current character is number.
+
+        var c = s.charAt(i);
+        if (c == "!" || c == "#" || c == "'" || c == "^" || c == ":" || c == "\"" || c == "*" || c == ":" || c == "(" || c == ")" || c == "+" || c == "=" || c == "|" || c == "<" || c == ">" || c == "%" || c == "?" || c == "/" || c == "@") {
+            return false;
+        }
+    }
+    // All characters are numbers.
+    return true;
 }
 
 function chkSpecialchar(s) {

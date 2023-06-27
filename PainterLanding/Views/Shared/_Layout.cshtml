@@ -383,35 +383,36 @@
         </div>
     </div>
     <!-- The Modal -->
-<div class="modal" id="consultFormModal">
-    <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-            <!-- Modal Header -->
-            <div class="modal-header">
-                <h4 class="modal-title">Thank You!</h4>
-                <button type="button" class="btn-close btnModalClose"><i class="fa fa-times" aria-hidden="true"></i></button>
-            </div>
-            <!-- Modal body -->
-            <div class="modal-body">
-                Thank you for sharing your details. We will get in touch with you shortly.
-            </div>
+    <div class="modal" id="consultFormModal">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <!-- Modal Header -->
+                <div class="modal-header">
+                    <h4 class="modal-title">Thank You!</h4>
+                    <button type="button" class="btn-close btnModalClose"><i class="fa fa-times" aria-hidden="true"></i></button>
+                </div>
+                <!-- Modal body -->
+                <div class="modal-body">
+                    Thank you for sharing your details. We will get in touch with you shortly.
+                </div>
 
-            <!-- Modal footer -->
-            <div class="modal-footer">
-                <button type="button" class="btn-dark btnModalClose" onclick="selectLanguage()">Close</button>
-            </div>
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                    <button type="button" class="btn-dark btnModalClose" onclick="selectLanguage()">Close</button>
+                </div>
 
+            </div>
         </div>
     </div>
-</div>
-	   <input id="UatBaseUrl" value="@System.Configuration.ConfigurationManager.AppSettings["UatBaseUrl"]" style="display:none" />
+    <input id="UatBaseUrl" value="@System.Configuration.ConfigurationManager.AppSettings["UatBaseUrl"]" style="display:none" />
+    <input id="LiveBaseUrl" value="@System.Configuration.ConfigurationManager.AppSettings["LiveBaseUrl"]" style="display:none" />
 
-	  <input id="UatUrl" value="@System.Configuration.ConfigurationManager.AppSettings["UatUrl"]" style="display:none" />
+    <input id="UatUrl" value="@System.Configuration.ConfigurationManager.AppSettings["UatUrl"]" style="display:none" />
     <input id="APIToken" value="@System.Configuration.ConfigurationManager.AppSettings["APiToken"]" style="display:none" />
-	  <input id="LiveUrl" value="@System.Configuration.ConfigurationManager.AppSettings["LiveUrl"]" style="display:none" />
-	  <input id="LiveEnvironment" value="@System.Configuration.ConfigurationManager.AppSettings["ISLiveEnvironment"]" style="display:none" />
+    <input id="LiveUrl" value="@System.Configuration.ConfigurationManager.AppSettings["LiveUrl"]" style="display:none" />
+    <input id="LiveEnvironment" value="@System.Configuration.ConfigurationManager.AppSettings["ISLiveEnvironment"]" style="display:none" />
 
-	  
+
     <script type="text/javascript" src="~/resources/js/jquery-3.5.1.min.js"></script>
     <script type="text/javascript" src="~/resources/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="~/resources/js/owl.carousel.min.js"></script>
@@ -424,33 +425,33 @@
     <script type="text/javascript" src="~/resources/js/custom.js"></script>
     <script type="text/javascript" src="~/resources/js/dataprocess.js"></script>
     <script type="text/javascript" src="~/resources/js/common.js"></script>
-   
-	  <script>
+
+    <script>
         function ChangeLanguage() {
-var UrlRedirect = "";
+            var UrlRedirect = "";
 
 
-            if ($("#language").val() == "Hindi") {  
-if($("#LiveEnvironment").val() == "Yes"){			
-     UrlRedirect  =   $("#LiveUrl").val();                           
-}else{
- UrlRedirect  =   $("#UatUrl").val();
-}
-var Link = UrlRedirect + "PainterLanding/Home/HindiPageRedirect";
+            if ($("#language").val() == "Hindi") {
+                if ($("#LiveEnvironment").val() == "Yes") {
+                    UrlRedirect = $("#LiveUrl").val();
+                } else {
+                    UrlRedirect = $("#UatUrl").val();
+                }
+                var Link = UrlRedirect + "PainterLanding/Home/HindiPageRedirect";
 
- location.href = Link; 
-            } else { 
-			
-			if($("#LiveEnvironment").val() == "Yes"){			
-     UrlRedirect  =   $("#LiveUrl").val() + "expert-contractor";                           
-}else{
- UrlRedirect  =   $("#UatUrl").val() + "PainterLanding";
-}
-var Link = UrlRedirect;
+                location.href = Link;
+            } else {
 
- location.href = Link; 
-  
-                 
+                if ($("#LiveEnvironment").val() == "Yes") {
+                    UrlRedirect = $("#LiveUrl").val() + "expert-contractor";
+                } else {
+                    UrlRedirect = $("#UatUrl").val() + "PainterLanding";
+                }
+                var Link = UrlRedirect;
+
+                location.href = Link;
+
+
             }
         }
 

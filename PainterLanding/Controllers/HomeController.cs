@@ -46,11 +46,12 @@ namespace PainterLanding.Controllers
             return View();
         }
 
-        [HttpPost]
-        public JsonResult InsertData(String Name, String Telephone, String Pincode, String City, string State , string PreferredLanguage, string IsAssociated, String Campaign, String Source, String Medium, string PreviousUrl)
+       [HttpPost]
+        public JsonResult InserPaintertData(String Name, String Telephone, String Pincode, String City, string State, string PreferredLanguage, string IsAssociated, String Campaign, String Source, String Medium, string PreviousUrl, string PageType, string Term, string keyword)
         {
             try
             {
+                LogException.Log("Ho");
                 string cnnString = System.Configuration.ConfigurationManager.ConnectionStrings["bergerConnectionString"].ConnectionString;
 
                 SqlConnection cnn = new SqlConnection(cnnString);
@@ -59,62 +60,20 @@ namespace PainterLanding.Controllers
                 cmd.CommandType = System.Data.CommandType.StoredProcedure;
                 cmd.CommandText = "PainterLandingInsert";
                 cmd.Parameters.Add("@ReturnVal", SqlDbType.Int).Direction = ParameterDirection.Output;
-                cmd.Parameters.Add("@Name", SqlDbType.VarChar).Value = Name;
+                cmd.Parameters.Add("@Name", SqlDbType.NVarChar).Value = Name;
                 cmd.Parameters.Add("@Telephone", SqlDbType.VarChar).Value = Telephone;
                 cmd.Parameters.Add("@Pincode", SqlDbType.VarChar).Value = Pincode;
-                cmd.Parameters.Add("@City", SqlDbType.VarChar).Value = City;
-                cmd.Parameters.Add("@State", SqlDbType.VarChar).Value = State;
+                cmd.Parameters.Add("@City", SqlDbType.NVarChar).Value = City;
+                cmd.Parameters.Add("@State", SqlDbType.NVarChar).Value = State;
                 cmd.Parameters.Add("@PreferredLanguage", SqlDbType.VarChar).Value = PreferredLanguage;
                 cmd.Parameters.Add("@IsAssociatedWithBerger", SqlDbType.VarChar).Value = IsAssociated;
-                cmd.Parameters.Add("@Source", SqlDbType.VarChar).Value = Source;
-                cmd.Parameters.Add("@Medium", SqlDbType.VarChar).Value = Medium;
-                cmd.Parameters.Add("@Campaign", SqlDbType.VarChar, 2000).Value = Campaign;
-                cmd.Parameters.Add("@Term", SqlDbType.VarChar).Value = "";
-                cmd.Parameters.Add("@Keyword", SqlDbType.VarChar).Value = ""; 
-                cmd.Parameters.Add("@UrlReferrer", SqlDbType.VarChar).Value = PreviousUrl; 
-                cmd.Parameters.Add("@ErrorMessage", SqlDbType.VarChar, 2000).Direction = ParameterDirection.Output;
-
-                //add any parameters the stored procedure might require
-                cnn.Open();
-                object o = cmd.ExecuteScalar();
-                cnn.Close();
-                var result = (int)cmd.Parameters["@ReturnVal"].Value;
-                if (result == 1)
-                    return Json(new { succeeded = true, message = "Success" });
-                else
-                    return Json(new { succeeded = false, message = (string)cmd.Parameters["@ErrorMessage"].Value });
-            }
-            catch (Exception ex)
-            {
-                return Json(new { succeeded = false, message = ex.Message });
-            }
-        }
-        [HttpPost]
-        public JsonResult InserPaintertData(String Name, String Telephone, String Pincode, String City, string State, string PreferredLanguage, string IsAssociated, String Campaign, String Source, String Medium, string PreviousUrl)
-        {
-            try
-            {
-                string cnnString = System.Configuration.ConfigurationManager.ConnectionStrings["bergerConnectionString"].ConnectionString;
-
-                SqlConnection cnn = new SqlConnection(cnnString);
-                SqlCommand cmd = new SqlCommand();
-                cmd.Connection = cnn;
-                cmd.CommandType = System.Data.CommandType.StoredProcedure;
-                cmd.CommandText = "PainterLandingInsert";
-                cmd.Parameters.Add("@ReturnVal", SqlDbType.Int).Direction = ParameterDirection.Output;
-                cmd.Parameters.Add("@Name", SqlDbType.VarChar).Value = Name;
-                cmd.Parameters.Add("@Telephone", SqlDbType.VarChar).Value = Telephone;
-                cmd.Parameters.Add("@Pincode", SqlDbType.VarChar).Value = Pincode;
-                cmd.Parameters.Add("@City", SqlDbType.VarChar).Value = City;
-                cmd.Parameters.Add("@State", SqlDbType.VarChar).Value = State;
-                cmd.Parameters.Add("@PreferredLanguage", SqlDbType.VarChar).Value = PreferredLanguage;
-                cmd.Parameters.Add("@IsAssociatedWithBerger", SqlDbType.VarChar).Value = IsAssociated;
-                cmd.Parameters.Add("@Source", SqlDbType.VarChar).Value = Source;
-                cmd.Parameters.Add("@Medium", SqlDbType.VarChar).Value = Medium;
-                cmd.Parameters.Add("@Campaign", SqlDbType.VarChar, 2000).Value = Campaign;
-                cmd.Parameters.Add("@Term", SqlDbType.VarChar).Value = "";
-                cmd.Parameters.Add("@Keyword", SqlDbType.VarChar).Value = "";
+                cmd.Parameters.Add("@Source", SqlDbType.NVarChar).Value = Source;
+                cmd.Parameters.Add("@Medium", SqlDbType.NVarChar).Value = Medium;
+                cmd.Parameters.Add("@Campaign", SqlDbType.NVarChar, 2000).Value = Campaign;
+                cmd.Parameters.Add("@Term", SqlDbType.NVarChar).Value = Term;
+                cmd.Parameters.Add("@Keyword", SqlDbType.NVarChar).Value = keyword;
                 cmd.Parameters.Add("@UrlReferrer", SqlDbType.VarChar).Value = PreviousUrl;
+                cmd.Parameters.Add("@PageType", SqlDbType.VarChar).Value = PageType;
                 cmd.Parameters.Add("@ErrorMessage", SqlDbType.VarChar, 2000).Direction = ParameterDirection.Output;
 
                 //add any parameters the stored procedure might require

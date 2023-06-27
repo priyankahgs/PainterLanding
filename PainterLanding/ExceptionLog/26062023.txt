@@ -1,0 +1,43 @@
+Logged Date: 6/26/2023 11:48:41 AM
+--------------------
+22
+--------------------
+--------------------
+
+Logged Date: 6/26/2023 11:48:42 AM
+--------------------
+https://bpilmobile.bergerindia.com/B2BLEADS/WebServicePainter.asmx/InsertBulkPainters
+--------------------
+--------------------
+
+Logged Date: 6/26/2023 11:48:51 AM
+--------------------
+Painter Api Request : System.Collections.Generic.List`1[PainterLanding.Controllers.HomeController+data]
+ Response : {"ResponseCode":200,"ResponseMsg":"1","Data":null}
+--------------------
+--------------------
+
+Logged Date: 6/26/2023 12:30:47 PM
+--------------------
+1
+--------------------
+--------------------
+
+Logged Date: 6/26/2023 12:30:47 PM
+--------------------
+https://bpilmobile.bergerindia.com/B2BLEADS/WebServicePainter.asmx/InsertBulkPainters
+--------------------
+--------------------
+
+Logged Date: 6/26/2023 12:32:01 PM
+--------------------
+2
+--------------------
+--------------------
+
+Logged Date: 6/26/2023 12:32:01 PM
+--------------------
+https://bpilmobile.bergerindia.com/B2BLEADS/WebServicePainter.asmx/InsertBulkPainters
+--------------------
+--------------------
+
